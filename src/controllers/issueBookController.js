@@ -1,10 +1,11 @@
 const express=require('express');
 const IssueBook=require('../models/IssueBook');
 const Book = require('../models/Book');
-
+const User = require('../models/User');
 issueBook=async (request,response)=>{
     try {
         const {bookId,bookName,studentId,studentName,issueDate,returnDate}=request.body;
+        console.log(request.body);
 
         const book=await Book.findById(bookId);
 

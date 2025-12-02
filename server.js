@@ -2,6 +2,8 @@ const express=require('express');
 require('dotenv').config();
 const bookRouter=require('./src/routes/bookRouter');
 const issueBookRouter=require('./src/routes/issueBookRouter');
+const userRouter=require('./src/routes/userRouter');
+const db = require('../library-management-apis-main/src/config/db')
 
 const app=express();
 
@@ -26,6 +28,7 @@ app.use(express.json());
 app.use(requestLogger);
 app.use('/books/',bookRouter);
 app.use('/issue-books/',issueBookRouter);
+app.use('/users/',userRouter);
 
 const PORT=process.env.PORT || 4000;
 
